@@ -66,6 +66,7 @@ module "eks" {
       desired_size = 2
     }
 
+
     node2 = {
       # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
       ami_type       = "AL2_x86_64"
