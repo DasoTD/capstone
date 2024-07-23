@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: carts-db
+  name: orders-db
   labels:
-    name: carts-db
+    name: orders-db
   namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: carts-db
+      name: orders-db
   template:
     metadata:
       labels:
-        name: carts-db
+        name: orders-db
     spec:
       containers:
-      - name: carts-db
+      - name: orders-db
         image: mongo
         ports:
         - name: mongo
@@ -38,4 +38,4 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux

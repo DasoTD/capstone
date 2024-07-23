@@ -1,29 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: orders
+  name: shipping
   labels:
-    name: orders
+    name: shipping
   namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: orders
+      name: shipping
   template:
     metadata:
       labels:
-        name: orders
+        name: shipping
     spec:
       containers:
-      - name: orders
-        image: weaveworksdemos/orders:0.4.7
+      - name: shipping
+        image: weaveworksdemos/shipping:0.4.8
         env:
+         - name: ZIPKIN
+           value: zipkin.jaeger.svc.cluster.local
          - name: JAVA_OPTS
            value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
         resources:
           limits:
-            cpu: 500m
+            cpu: 300m
             memory: 500Mi
           requests:
             cpu: 100m
@@ -47,4 +49,4 @@ spec:
           emptyDir:
             medium: Memory
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux

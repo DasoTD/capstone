@@ -24,8 +24,8 @@ module "vpc" {
   public_subnets  = ["10.0.3.0/24", "10.0.4.0/24"]
 
   enable_nat_gateway   = true
-  enable_dns_hostnames = true
   single_nat_gateway   = true
+  enable_dns_hostnames = true
 
   tags = {
     Terraform   = "true"
@@ -82,8 +82,5 @@ module "eks" {
   # To add the current caller identity as an administrator
   enable_cluster_creator_admin_permissions = true
 
-  tags = {
-    Environment = "dev"
-    Terraform   = "true"
-  }
+
 }
