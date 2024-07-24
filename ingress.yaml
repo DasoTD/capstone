@@ -6,6 +6,7 @@ metadata:
   labels:
     name: sockshop-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - host: sock.tdcloud.com.ng
     http:
