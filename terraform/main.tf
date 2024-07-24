@@ -48,32 +48,33 @@ module "eks" {
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets //["subnet-abcde012", "subnet-bcde012a", "subnet-fghi345a"]
-  #   control_plane_subnet_ids = ["subnet-xyzde987", "subnet-slkjf456", "subnet-qeiru789"]
+
 
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
-    instance_types = ["t2.medium"]
+
+    ami_type       = "AL2_x86_64"
   }
 
   eks_managed_node_groups = {
     node1 = {
       # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
-      ami_type       = "AL2_x86_64"
+      name = "node-group1"
       instance_types = ["t2.medium"]
 
       min_size     = 1
-      max_size     = 3
+      max_size     = 2
       desired_size = 2
     }
 
 
     node2 = {
       # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
-      ami_type       = "AL2_x86_64"
+      name = "node-group2"
       instance_types = ["t2.medium"]
 
       min_size     = 1
-      max_size     = 3
+      max_size     = 2
       desired_size = 2
     }
   }
