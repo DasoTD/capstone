@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: sock.tdcloud.com.ng
+  - host: sock.timileyindaso.com
     http:
       paths:
       - pathType: Prefix
