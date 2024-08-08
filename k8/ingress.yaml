@@ -5,8 +5,8 @@ metadata:
   namespace: sock-shop
   labels:
     name: sockshop-ingress
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+  # annotations:
+  #   cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
   rules:
@@ -21,30 +21,30 @@ spec:
             port: 
               number: 80
 
-  - host: grafana.timileyindaso.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: prometheus-grafana
-            port: 
-              number: 80
+  # - host: grafana.timileyindaso.com
+  #   http:
+  #     paths:
+  #     - pathType: Prefix
+  #       path: "/"
+  #       backend:
+  #         service:
+  #           name: prometheus-grafana
+  #           port: 
+  #             number: 80
 
-  - host: prometheus.timileyindaso.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: prometheus-kube-prometheus-prometheus
-            port: 
-              number: 9090
-  tls:
-  - hosts:
-    - sock.timileyindaso.com
-    - grafana.timileyindaso.com
-    - prometheus.timileyindaso.com
-    secretName: my-app-tls
+  # - host: prometheus.timileyindaso.com
+  #   http:
+  #     paths:
+  #     - pathType: Prefix
+  #       path: "/"
+  #       backend:
+  #         service:
+  #           name: prometheus-kube-prometheus-prometheus
+  #           port: 
+  #             number: 9090
+  # tls:
+  # - hosts:
+  #   - sock.timileyindaso.com
+  #   - grafana.timileyindaso.com
+  #   - prometheus.timileyindaso.com
+  #   secretName: my-app-tls
