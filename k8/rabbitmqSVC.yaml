@@ -7,7 +7,7 @@ metadata:
         prometheus.io/port: '9090'
   labels:
     name: rabbitmq
-  namespace: sockshop
+  namespace: sockshopns
 spec:
   ports:
     # the port that this service should serve on

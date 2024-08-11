@@ -4,7 +4,7 @@ metadata:
   name: session-db
   labels:
     name: session-db
-  namespace: sockshop
+  namespace: sockshopns
 spec:
   replicas: 1
   selector:

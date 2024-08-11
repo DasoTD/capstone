@@ -5,7 +5,7 @@ metadata:
   name: catalogue
   labels:
     name: catalogue
-  namespace: sockshop
+  namespace: sockshopns
 spec:
   replicas: 1
   selector:
@@ -27,7 +27,7 @@ spec:
             cpu: 200m
             memory: 200Mi
           requests:
-            cpu: 300m
+            cpu: 100m
             memory: 100Mi
         ports:
         - containerPort: 80

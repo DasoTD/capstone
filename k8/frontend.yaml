@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-end
-  namespace: sockshop
+  namespace: sockshopns
 spec:
   replicas: 1
   selector:

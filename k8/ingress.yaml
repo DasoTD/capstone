@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: sockshop-ingress
-  namespace: sockshop
+  namespace: sockshopns
   labels:
     name: sockshop-ingress
   # annotations:
@@ -28,7 +28,7 @@ spec:
   #       path: "/"
   #       backend:
   #         service:
-  #           name: prometheus-grafana
+  #           name: promet-grafana
   #           port: 
   #             number: 80
 
@@ -39,7 +39,7 @@ spec:
   #       path: "/"
   #       backend:
   #         service:
-  #           name: prometheus-kube-prometheus-prometheus
+  #           name: promet-kube-prometheus-sta-prometheus
   #           port: 
   #             number: 9090
   # tls:
