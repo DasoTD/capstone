@@ -6,7 +6,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: front-end
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   # type: NodePort
   ports:

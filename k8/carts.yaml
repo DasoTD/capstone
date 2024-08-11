@@ -4,7 +4,7 @@ metadata:
   name: carts
   labels:
     name: carts
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -23,10 +23,10 @@ spec:
            value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
         resources:
           limits:
-            cpu: 300m
+            cpu: 500m
             memory: 500Mi
           requests:
-            cpu: 100m
+            cpu: 300m
             memory: 200Mi
         ports:
         - containerPort: 80

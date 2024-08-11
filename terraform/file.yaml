@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: sock-shop
+  name: sockshop
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -10,7 +10,7 @@ metadata:
   name: carts
   labels:
     name: carts
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -29,10 +29,10 @@ spec:
            value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
         resources:
           limits:
-            cpu: 300m
+            cpu: 500m
             memory: 500Mi
           requests:
-            cpu: 100m
+            cpu: 300m
             memory: 200Mi
         ports:
         - containerPort: 80
@@ -63,7 +63,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: carts
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -78,7 +78,7 @@ metadata:
   name: carts-db
   labels:
     name: carts-db
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -120,7 +120,7 @@ metadata:
   name: carts-db
   labels:
     name: carts-db
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -135,7 +135,7 @@ metadata:
   name: catalogue
   labels:
     name: catalogue
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -157,7 +157,7 @@ spec:
             cpu: 200m
             memory: 200Mi
           requests:
-            cpu: 100m
+            cpu: 300m
             memory: 100Mi
         ports:
         - containerPort: 80
@@ -193,7 +193,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: catalogue
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -208,7 +208,7 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -239,7 +239,7 @@ metadata:
   name: catalogue-db
   labels:
     name: catalogue-db
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -252,7 +252,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-end
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -268,10 +268,10 @@ spec:
         image: weaveworksdemos/front-end:0.3.12
         resources:
           limits:
-            cpu: 300m
+            cpu: 500m
             memory: 1000Mi
           requests:
-            cpu: 100m
+            cpu: 300m
             memory: 300Mi
         ports:
         - containerPort: 8079
@@ -308,7 +308,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: front-end
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   type: NodePort
   ports:
@@ -324,7 +324,7 @@ metadata:
   name: orders
   labels:
     name: orders
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -346,7 +346,7 @@ spec:
             cpu: 500m
             memory: 500Mi
           requests:
-            cpu: 100m
+            cpu: 300m
             memory: 300Mi
         ports:
         - containerPort: 80
@@ -377,7 +377,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: orders
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -392,7 +392,7 @@ metadata:
   name: orders-db
   labels:
     name: orders-db
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -434,7 +434,7 @@ metadata:
   name: orders-db
   labels:
     name: orders-db
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -449,7 +449,7 @@ metadata:
   name: payment
   labels:
     name: payment
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -504,7 +504,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: payment
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -519,7 +519,7 @@ metadata:
   name: queue-master
   labels:
     name: queue-master
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -538,10 +538,10 @@ spec:
            value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
         resources:
           limits:
-            cpu: 300m
+            cpu: 500m
             memory: 500Mi
           requests:
-            cpu: 100m
+            cpu: 300m
             memory: 300Mi
         ports:
         - containerPort: 80
@@ -556,7 +556,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: queue-master
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -571,7 +571,7 @@ metadata:
   name: rabbitmq
   labels:
     name: rabbitmq
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -619,7 +619,7 @@ metadata:
         prometheus.io/port: '9090'
   labels:
     name: rabbitmq
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -639,7 +639,7 @@ metadata:
   name: session-db
   labels:
     name: session-db
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -676,7 +676,7 @@ metadata:
   name: session-db
   labels:
     name: session-db
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -691,7 +691,7 @@ metadata:
   name: shipping
   labels:
     name: shipping
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -712,10 +712,10 @@ spec:
            value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
         resources:
           limits:
-            cpu: 300m
+            cpu: 500m
             memory: 500Mi
           requests:
-            cpu: 100m
+            cpu: 300m
             memory: 300Mi
         ports:
         - containerPort: 80
@@ -746,7 +746,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: shipping
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -762,7 +762,7 @@ metadata:
   name: user
   labels:
     name: user
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -778,10 +778,10 @@ spec:
         image: weaveworksdemos/user:0.4.7
         resources:
           limits:
-            cpu: 300m
+            cpu: 500m
             memory: 200Mi
           requests:
-            cpu: 100m
+            cpu: 300m
             memory: 100Mi
         ports:
         - containerPort: 80
@@ -820,7 +820,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: user
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on
@@ -836,7 +836,7 @@ metadata:
   name: user-db
   labels:
     name: user-db
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
@@ -879,7 +879,7 @@ metadata:
   name: user-db
   labels:
     name: user-db
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on

@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: sockshop-ingress
-  namespace: sock-shop
+  namespace: sockshop
   labels:
     name: sockshop-ingress
   # annotations:
