@@ -39,7 +39,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.0"
 
-  cluster_name    = "sockshop"
+  cluster_name    = "sockshopeks"
   cluster_version = "1.30"
 
   cluster_endpoint_public_access = true
@@ -55,7 +55,7 @@ module "eks" {
 
   eks_managed_node_groups = {
     node1 = {
-      instance_types = ["t2.medium"]
+      instance_types = ["t2.xlarge"]
 
       min_size     = 1
       max_size     = 2
@@ -64,7 +64,7 @@ module "eks" {
 
 
     node2 = {
-      instance_types = ["t2.medium"]
+      instance_types = ["t2.xlarge"]
 
       min_size     = 1
       max_size     = 2

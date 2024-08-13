@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: sockshop-ingress
-  namespace: sockshopns
+  namespace: sockshop
   labels:
     name: sockshop-ingress
   # annotations:
@@ -21,30 +21,30 @@ spec:
             port: 
               number: 80
 
-  # - host: grafana.timileyindaso.com
-  #   http:
-  #     paths:
-  #     - pathType: Prefix
-  #       path: "/"
-  #       backend:
-  #         service:
-  #           name: promet-grafana
-  #           port: 
-  #             number: 80
+  - host: grafana.timileyindaso.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: prome-com-grafana
+            port: 
+              number: 80
 
-  # - host: prometheus.timileyindaso.com
-  #   http:
-  #     paths:
-  #     - pathType: Prefix
-  #       path: "/"
-  #       backend:
-  #         service:
-  #           name: promet-kube-prometheus-sta-prometheus
-  #           port: 
-  #             number: 9090
-  # tls:
-  # - hosts:
-  #   - sock.timileyindaso.com
-  #   - grafana.timileyindaso.com
-  #   - prometheus.timileyindaso.com
-  #   secretName: my-app-tls
+  - host: prometheus.timileyindaso.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: prome-com-kube-prometheus-prometheus
+            port: 
+              number: 9090
+  tls:
+  - hosts:
+    - sock.timileyindaso.com
+    - grafana.timileyindaso.com
+    - prometheus.timileyindaso.com
+    secretName: xy-secret

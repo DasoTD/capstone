@@ -6,7 +6,7 @@ metadata:
         prometheus.io/scrape: 'true'
   labels:
     name: carts
-  namespace: sockshopns
+  namespace: sockshop
 spec:
   ports:
     # the port that this service should serve on

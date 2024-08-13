@@ -2,12 +2,12 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: my-app-cert
-  # namespace: sockshopns
+  namespace: sockshop
 spec:
-  secretName: my-app-tls
+  secretName: xy-secret
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: sock.timileyindaso.com
+  commonName: www.timileyindaso.com
   dnsNames:
-  - sock.timileyindaso.com
+  - www.timileyindaso.com

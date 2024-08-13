@@ -4,7 +4,7 @@ metadata:
   name: orders
   labels:
     name: orders
-  namespace: sockshopns
+  namespace: sockshop
 spec:
   replicas: 1
   selector:
